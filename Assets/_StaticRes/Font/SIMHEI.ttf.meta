@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 26e3e083c6e2cbd4d96b4a5994cb1e6b
+timeCreated: 1487498321
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - SimHei
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 593cf1249654df34093fa9723e0c2c9e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
