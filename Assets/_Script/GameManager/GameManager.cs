@@ -53,13 +53,14 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
+#if UNITY_ANDROID
         if (this.domainName != string.Empty)
         {
             this.ChangeIpToYming(this.domainName);
         }
         this.jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         this.jo = this.jc.GetStatic<AndroidJavaObject>("currentActivity");
-
+#endif
     }
 
     public void RegisterFuc(string UserID, string UserName, string PassWord, int PhoneNum, string TuiJianren)
@@ -247,6 +248,8 @@ public class GameManager : MonoBehaviour
 
     protected void DownLoadUpdate(int type)
     {
+        Debug.Log( "--Tag-- DownLoadUpdate" );
+#if UNITY_ANDROID
         if (this.m_bStartDownload)
         {
             if ((float)(this.lsize[0] - this.m_lCurrenSize) >= 0.1f)
@@ -274,6 +277,7 @@ public class GameManager : MonoBehaviour
                 //this.DownloadGame = EGameType.GameType_Unknown;
             }
         }
+#endif
     }
     public void RecRegisterMessage(bool success, int failmessage)
     {
