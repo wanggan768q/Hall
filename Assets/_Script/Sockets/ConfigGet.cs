@@ -30,7 +30,7 @@ public class ConfigGet : MonoBehaviour
 
 	public static void WWWGet()
 	{
-		ConfigGet.url = "http://" + "101.37.85.230" + ":8080/game/Version.txt";
+		ConfigGet.url = "http://" + "183.2.246.50" + ":8080/game/Version.txt";
 		ConfigGet.www = new WWW(ConfigGet.url);
 	}
 

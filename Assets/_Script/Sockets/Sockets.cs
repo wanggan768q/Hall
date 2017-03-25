@@ -132,7 +132,7 @@ public class Sockets : MonoBehaviour
 	private bool _socketStart()
 	{
 		this.MySocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-		IPEndPoint remoteEP = new IPEndPoint(IPAddress.Parse("101.37.85.230"), 8899);
+		IPEndPoint remoteEP = new IPEndPoint(IPAddress.Parse("183.2.246.50"), 8899);
 		bool result;
 		try
 		{

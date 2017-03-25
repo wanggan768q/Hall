@@ -500,7 +500,8 @@ public class GameManager : MonoBehaviour
             num.ToString()
         });
 		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
-		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + DateTime.Now.Millisecond / 1000;
+		//userMessage
+		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + " " + DateTime.Now.Millisecond / 1000;
 
 		aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
 		string url = string.Format("MoneyFish://?" + aaa);
