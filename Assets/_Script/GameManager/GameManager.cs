@@ -4,6 +4,7 @@ using System.Collections;
 using System.Net;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using System.Text;
 
 public class GameManager : MonoBehaviour
 {
@@ -499,15 +500,15 @@ public class GameManager : MonoBehaviour
         //    num.ToString()
         //});
 		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
-		string url = string.Format("startFish://?" +
-			"username="+UserInformation.username+
-			"&password="+UserInformation.password+
-			"&type="+type+
-			"&ip="+Constants.IP+
-			"&num="+num.ToString());
-			OpenGame(url);
+		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + Constants.IP + " " + num + DateTime.Now.Millisecond / 1000;
+
+		aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
+		string url = string.Format("MoneyFish://?" + aaa);
+		OpenGame(url);
 		#endif
     }
+
+
     public void UpdateUserInfo(string nickname,char personsex,int photoid)
     {
         if (NetMain.GetSingleton().MyCreateSocket.GetSocketStartFlag())
