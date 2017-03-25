@@ -4,6 +4,8 @@ using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 
+
+
 internal class RSA : MonoBehaviour
 {
 	private RSACryptoServiceProvider rsa;

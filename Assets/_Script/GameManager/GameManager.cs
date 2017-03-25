@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Net;
 using UnityEngine;
+using System.Runtime.InteropServices;
+
 public class GameManager : MonoBehaviour
 {
     public string HallVersion="1.2.12";
@@ -467,7 +469,9 @@ public class GameManager : MonoBehaviour
         }
            
     }
-    
+	[DllImportAttribute("__Internal")]  
+	public static extern void OpenGame (string gameName);
+
     public void startFish(int type)
     {
         if (type < 0 || type > 5)
@@ -483,6 +487,7 @@ public class GameManager : MonoBehaviour
         {
             num = 0;
         }
+		#if UNITY_ANDROID
         // 发送名字 密码 类型 ip 和 多语言id
         this.jo.Call("startFish");
         //this.jo.Call("startFish", new object[]
@@ -493,6 +498,15 @@ public class GameManager : MonoBehaviour
         //    Constants.IP,
         //    num.ToString()
         //});
+		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
+		string url = string.Format("startFish://?" +
+			"username="+UserInformation.username+
+			"&password="+UserInformation.password+
+			"&type="+type+
+			"&ip="+Constants.IP+
+			"&num="+num.ToString());
+			OpenGame(url);
+		#endif
     }
     public void UpdateUserInfo(string nickname,char personsex,int photoid)
     {
@@ -526,11 +540,14 @@ public class GameManager : MonoBehaviour
         }
         GameManager.CommunicationEnable = true;
     }
+
+	#if UNITY_ANDROID
     private void OnGUI()
     {
         GUILayout.Label("bbbb");
         GUI.Label(new Rect(200,200,200,200),"ssssss" + jo.ToString()+"aaaa");
     }
+	#endif
     //[DebuggerHidden]
     //private IEnumerator DownloadVersion()
     //{
