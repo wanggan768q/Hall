@@ -490,17 +490,17 @@ public class GameManager : MonoBehaviour
         }
 		#if UNITY_ANDROID
         // 发送名字 密码 类型 ip 和 多语言id
-        this.jo.Call("startFish");
-        //this.jo.Call("startFish", new object[]
-        //{
-        //    UserInformation.username,
-        //    UserInformation.password,
-        //    type,
-        //    Constants.IP,
-        //    num.ToString()
-        //});
+        //this.jo.Call("startFish");
+        this.jo.Call("startFish", new object[]
+        {
+            UserInformation.username,
+            UserInformation.password,
+            type,
+            Constants.IP,
+            num.ToString()
+        });
 		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
-		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + Constants.IP + " " + num + DateTime.Now.Millisecond / 1000;
+		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + DateTime.Now.Millisecond / 1000;
 
 		aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
 		string url = string.Format("MoneyFish://?" + aaa);
