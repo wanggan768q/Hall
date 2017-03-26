@@ -501,14 +501,40 @@ public class GameManager : MonoBehaviour
         });
 		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
 		//userMessage
-		string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + " " + DateTime.Now.Millisecond / 1000;
+		//string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + " " + DateTime.Now.Millisecond / 1000;
 
-		aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
-		string url = string.Format("MoneyFish://?" + aaa);
-		OpenGame(url);
+		//aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
+
+		string str = "MoneyFish://www.xingli.com?";
+//		string text = string.Concat(new string[]
+//			{
+//				"+NAME=",
+//				UserInformation.username,
+//				"+PWD=",
+//				UserInformation.password,
+//				"+IP=",
+//				"183.2.246.50",
+//				"+LAN=",
+//				num.ToString()
+//			});
+		string text = string.Concat(new string[]
+			{
+				"+NAME=",
+				UserInformation.username,
+				"+PWD=",
+				UserInformation.password,
+				"+IP=",
+				"183.2.246.50",
+				"+LAN=",
+				num.ToString()
+			});
+		text = str + text;
+		Application.OpenURL(text);
+		Application.Quit();
+		//string url = string.Format("MoneyFish://?userMessage=" + aaa);
+		//OpenGame(url);
 		#endif
     }
-
 
     public void UpdateUserInfo(string nickname,char personsex,int photoid)
     {
