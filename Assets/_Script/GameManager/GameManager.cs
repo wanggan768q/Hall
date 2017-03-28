@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
                 {
                     //this.Game.ShowGetNetDateTip();
                     CommunicationEnable = false;
+					UserInformation.password = UserPassWord;
                     Debug.Log("发送成功");
                 }
                 //if (this.Login.GetToggleStartState() || HallManagerPanel.GetSingleton().OperationalVersion)
