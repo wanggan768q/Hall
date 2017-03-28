@@ -13,6 +13,7 @@ public class AlterPortrait_Panel : Windows<AlterPortrait_Panel>
     private Button mPortrait02;
     private Button mPortrait03;
     private Button mbg;
+
     private static AlterPortrait_Panel A_single = null;
     public static AlterPortrait_Panel gatSingle()
     {
@@ -78,12 +79,11 @@ public class AlterPortrait_Panel : Windows<AlterPortrait_Panel>
     private void onPortrait()
     {
         Userlocate_Controller.gatSingle().ChanePhoto(1);
-        GameManager.Getsingle().UpdateUserInfo(UserInformation.nickname, UserInformation.sex,1);
+        GameManager.Getsingle().UpdateUserInfo(UserInformation.nickname, UserInformation.sex, 1);
         Close();
     }
     private void onPortrait01()
     {
-        Debug.Log("123");
         Userlocate_Controller.gatSingle().ChanePhoto(2);
         GameManager.Getsingle().UpdateUserInfo(UserInformation.nickname, UserInformation.sex, 2);
         Close();
@@ -91,7 +91,7 @@ public class AlterPortrait_Panel : Windows<AlterPortrait_Panel>
     private void onPortrait02()
     {
         Userlocate_Controller.gatSingle().ChanePhoto(3);
-        GameManager.Getsingle().UpdateUserInfo(UserInformation.nickname, UserInformation.sex,3);
+        GameManager.Getsingle().UpdateUserInfo(UserInformation.nickname, UserInformation.sex, 3);
         Close();
     }
     private void onPortrait03()

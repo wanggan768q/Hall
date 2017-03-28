@@ -34,7 +34,7 @@ public class LoginRequest : MonoBehaviour {
         StartCoroutine(UserCancel(mUserid, deviceid));
     }
     public  IEnumerator LoginRequestFuc(string userid, string deviceid)
-    {
+    {//47.90.125.190
         string testUrl = "http://47.90.125.190:8080/auth/verfiy/" + userid + "/" + deviceid;// 21213 / 12312";
         WWW www = new WWW(testUrl);
         yield return www;

@@ -60,7 +60,7 @@ public class CommonMessageUIController : Windows<CommonMessageUIController> {
                     btnConfirm.transform.Find("Text").GetComponent<Text>().text = "OK";
                 }
                 
-                btnConfirm.gameObject.transform.localPosition = new Vector3(0, -59, 0);
+                btnConfirm.gameObject.transform.localPosition = new Vector3(0, -100, 0);
                 btnCancel.gameObject.SetActive(false);
                 break;
             case 2:
@@ -102,6 +102,21 @@ public class CommonMessageUIController : Windows<CommonMessageUIController> {
                     btnCancel.transform.Find("Text").GetComponent<Text>().text = "Cancel";
                 }
                 SoundManager.GetSingleton().playButtonSound(MusicType.Type_Button);
+                break;
+            case 5:
+                if (Globle.LanType == 0)
+                {
+                    btnConfirm.transform.Find("Text").GetComponent<Text>().text = "退出";
+                    btnCancel.transform.Find("Text").GetComponent<Text>().text = "取消";
+
+                }
+                else if (Globle.LanType == 1)
+                {
+                    btnConfirm.transform.Find("Text").GetComponent<Text>().text = "Confirm";
+                    btnCancel.transform.Find("Text").GetComponent<Text>().text = "Cancel";
+                }
+                btnConfirm.gameObject.transform.localPosition = new Vector3(-111, -80, 0);
+                btnCancel.gameObject.transform.localPosition = new Vector3(107, -80, 0);
                 break;
             default:
                 break;

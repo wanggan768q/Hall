@@ -78,7 +78,7 @@ public abstract class Windows<T> where T : class, new()
         }
         else
         {
-            WndObject.transform.localPosition = new Vector3(0, 0, -560);            
+            WndObject.transform.localPosition = new Vector3(0, 0, 0);            
         }
         WndObject.transform.localScale = Vector3.one;
         if (PrefabName == "Prefabs/UIPrefab/Lobby/CommonBar")

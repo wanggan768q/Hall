@@ -3,8 +3,7 @@ using System;
 using System.Collections;
 using System.Net;
 using UnityEngine;
-using System.Runtime.InteropServices;
-using System.Text;
+using DateDeclare;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,7 +26,7 @@ public class GameManager : MonoBehaviour
     public static string RegisterUserID;
     public static string RegisterPassword;
     public UserInformation UserInfo;
-    public static string url = "http://47.91.142.202:8200/auth/verfiy/";
+    public static string url = "http://47.90.125.190:8200/auth/verfiy/";
     public static WWW www;
     private string username = "ggggg";
     private string deviceid = "zzzz";
@@ -56,14 +55,15 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-#if UNITY_ANDROID
         if (this.domainName != string.Empty)
         {
             this.ChangeIpToYming(this.domainName);
         }
+		#if UNITY_ANDROID
         this.jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         this.jo = this.jc.GetStatic<AndroidJavaObject>("currentActivity");
-#endif
+		#endif
+
     }
 
     public void RegisterFuc(string UserID, string UserName, string PassWord, int PhoneNum, string TuiJianren)
@@ -252,14 +252,13 @@ public class GameManager : MonoBehaviour
 
     protected void DownLoadUpdate(int type)
     {
-        Debug.Log( "--Tag-- DownLoadUpdate" );
-#if UNITY_ANDROID
         if (this.m_bStartDownload)
         {
             if ((float)(this.lsize[0] - this.m_lCurrenSize) >= 0.1f)
             {
              //   this.ShowProgress(float.Parse(((float)this.lsize[0] * 1f / (float)this.lsize[1]).ToString("0.00")));
             }
+			#if UNITY_ANDROID
             if (this.jo.Get<bool>("StartDown"))
             {
                 this.m_lCurrenSize = this.lsize[0];
@@ -276,17 +275,13 @@ public class GameManager : MonoBehaviour
             if (this.jo.Get<bool>("DownOk"))
             {
                 this.m_bStartDownload = false;
-                //this.ShowProgress(1f);
-                //this.GameObj.transform.FindChild("GameType/Progress Bar").gameObject.SetActive(false);
-                //this.DownloadGame = EGameType.GameType_Unknown;
+                
             }
+			#endif
         }
-#endif
     }
     public void RecRegisterMessage(bool success, int failmessage)
     {
-       
-       
         //if (!this.m_bYouKe)
         //{
         //    if (NetMain.GetSingleton().MyCreateSocket.GetSocketStartFlag())
@@ -471,9 +466,7 @@ public class GameManager : MonoBehaviour
         }
            
     }
-	[DllImportAttribute("__Internal")]  
-	public static extern void OpenGame (string gameName);
-
+    
     public void startFish(int type)
     {
         if (type < 0 || type > 5)
@@ -491,7 +484,6 @@ public class GameManager : MonoBehaviour
         }
 		#if UNITY_ANDROID
         // 发送名字 密码 类型 ip 和 多语言id
-        //this.jo.Call("startFish");
         this.jo.Call("startFish", new object[]
         {
             UserInformation.username,
@@ -501,23 +493,31 @@ public class GameManager : MonoBehaviour
             num.ToString()
         });
 		#elif UNITY_STANDALONE_OSX || UNITY_IPHONE
-		//userMessage
-		//string aaa = UserInformation.username + " " + UserInformation.password + " " + "com.xingli.hall" + " " + "183.2.246.50" + " " + num + " " + DateTime.Now.Millisecond / 1000;
-
-		//aaa = AES.AESEncrypt(aaa,"sadkjfdashfhegdgfdhjfghfdgdgdgoiewquqreqopacvoppodfdf");
-
-		string str = "MoneyFish://www.xingli.com?";
-//		string text = string.Concat(new string[]
-//			{
-//				"+NAME=",
-//				UserInformation.username,
-//				"+PWD=",
-//				UserInformation.password,
-//				"+IP=",
-//				"183.2.246.50",
-//				"+LAN=",
-//				num.ToString()
-//			});
+		string str = "MoneyFish";
+		switch (type) {
+		case 0:
+			str = "LuckLion";
+			break;
+		case 1:
+			str = "MoneyFish";
+			break;
+		case 2:
+			str = "DanTiao";
+			break;
+		case 3:
+			str = "WanFish";
+			break;
+		case 4:
+			str = "BeautyFish";
+			break;
+		case 5:
+			str = "QueYiMen";
+			break;
+		default:
+			str = "MoneyFish";
+			break;
+		}
+		str += "://www.xingli.com?";
 		string text = string.Concat(new string[]
 			{
 				"+NAME=",
@@ -532,11 +532,8 @@ public class GameManager : MonoBehaviour
 		text = str + text;
 		Application.OpenURL(text);
 		Application.Quit();
-		//string url = string.Format("MoneyFish://?userMessage=" + aaa);
-		//OpenGame(url);
 		#endif
     }
-
     public void UpdateUserInfo(string nickname,char personsex,int photoid)
     {
         if (NetMain.GetSingleton().MyCreateSocket.GetSocketStartFlag())
@@ -569,7 +566,6 @@ public class GameManager : MonoBehaviour
         }
         GameManager.CommunicationEnable = true;
     }
-
 	#if UNITY_ANDROID
     private void OnGUI()
     {

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c9f18b7e0297a6f4ea4efd9246623543
-timeCreated: 1489162704
+timeCreated: 1490284175
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -89,6 +89,13 @@ TextureImporter:
     21300164: Atlas_QYMDT_82
     21300166: Atlas_QYMDT_83
     21300168: Atlas_QYMDT_84
+    21300170: Atlas_QYMDT_85
+    21300172: Atlas_QYMDT_86
+    21300174: Atlas_QYMDT_87
+    21300176: Atlas_QYMDT_88
+    21300178: Atlas_QYMDT_89
+    21300180: Atlas_QYMDT_90
+    21300182: Atlas_QYMDT_91
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -758,7 +765,7 @@ TextureImporter:
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
@@ -771,7 +778,7 @@ TextureImporter:
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 2, z: 1, w: 2}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
@@ -1224,6 +1231,110 @@ TextureImporter:
         y: 1701
         width: 42
         height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_74
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 142
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_85
+      rect:
+        serializedVersion: 2
+        x: 2014
+        y: 113
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_86
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 85
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_87
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 57
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_88
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 29
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_89
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 1
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_90
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 470
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Atlas_QYMDT_91
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1371
+        width: 15
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

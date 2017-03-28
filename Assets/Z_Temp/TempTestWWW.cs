@@ -85,7 +85,7 @@ public class TempTestWWW : MonoBehaviour {
     }
     private IEnumerator UserCancel(string userid, string deviceid)
     {
-        string testUrl = "http://47.91.142.202:8080/spray/auth/cancel/" + userid + "/" + deviceid;
+        string testUrl = "http://47.90.125.190:8080/auth/cancel/" + userid + "/" + deviceid;
         WWW www = new WWW(testUrl);
         yield return www;
         Debug.Log("postrequest 3");

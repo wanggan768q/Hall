@@ -9,6 +9,7 @@ public class UICTnumtor : MonoBehaviour {
 	}
     IEnumerator startSendTest()
     {
+
         WWWForm wf = new WWWForm();
         //wf.AddField(ss);
         WWW www = new WWW("106.15.39.211/examples");

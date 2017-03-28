@@ -66,7 +66,7 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
     /// </summary>
     public override string PrefabName
     {
-        get 
+        get
         {
             return "Prefabs/UIPrefab/Panel_Zhucezhanghao";
         }
@@ -107,21 +107,23 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
         mBackLogin.onClick.AddListener(OnClickBackLogin);
     }
 
-    private void  OnClickBackLogin()
+    private void OnClickBackLogin()
     {
+        SoundManager.GetSingleton().playButtonSound(MusicType.Type_Button);
         CommonMessageUIController.Instance.Open();
         if (Globle.LanType == 0)
         {
-            CommonMessageUIController.Getsingle().ShowText("退出注册？", 2);
+            CommonMessageUIController.Getsingle().ShowText("退出注册？", 5);
         }
         else if (Globle.LanType == 1)
         {
-            CommonMessageUIController.Getsingle().ShowText("Exit registration?", 2);
+            CommonMessageUIController.Getsingle().ShowText("Exit registration?", 5);
         }
         CommonMessageUIController.Instance.OnClickedOk = OnCLoseTips;
     }
     private void OnCLoseTips()
     {
+       
         Close();
     }
 
@@ -144,28 +146,28 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
         //判断游戏账号长度
         if (mGameUserID.text.Length < 5 || mGameUserID.text.Length > 15)
         {
-            Debug.Log("游戏账号" + mGameUserID.text .ToString());
+            Debug.Log("游戏账号" + mGameUserID.text.ToString());
             CommonMessageUIController.Instance.Open();
             if (Globle.LanType == 0)
             {
-                CommonMessageUIController.Getsingle().ShowText("5-15位字母，数字或下划线", 1);
+                CommonMessageUIController.Getsingle().ShowText("游戏账号必须是5-15个字符", 1);
             }
             else if (Globle.LanType == 1)
             {
                 CommonMessageUIController.Getsingle().ShowText("The User ID must be 5 to 15 characters", 1);
             }
-          
+
             return;
         }
         UserID = mGameUserID.text;
         //判断游戏昵称是否为空以及长度是否大于10
-        if(mGameName.text==null || mGameName.text == "")
+        if (mGameName.text == null || mGameName.text == "")
         {
             Debug.Log("游戏昵称" + mGameName.text.ToString());
             CommonMessageUIController.Instance.Open();
             if (Globle.LanType == 0)
             {
-                CommonMessageUIController.Getsingle().ShowText("10个字符以内，可以使用汉字", 1);
+                CommonMessageUIController.Getsingle().ShowText("请输入游戏昵称", 1);
             }
             else if (Globle.LanType == 1)
             {
@@ -173,7 +175,7 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
             }
             return;
         }
-        else if(mGameName.text.Length > 10)
+        else if (mGameName.text.Length > 10)
         {
             CommonMessageUIController.Instance.Open();
             CommonMessageUIController.Getsingle().ShowText("6-16位字母和数字的组合密码", 1);
@@ -198,7 +200,7 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
         //游戏登录密码需要多层判断 1.是否为空 2.是否全为数字 3.是否全为英文
         string ispasswordnum;
         ispasswordnum = mLoginPassword.text.ToString();
-        if (mLoginPassword.text == null || mLoginPassword.text=="")
+        if (mLoginPassword.text == null || mLoginPassword.text == "")
         {
             Debug.Log("游戏密码" + mLoginPassword);
             CommonMessageUIController.Instance.Open();
@@ -231,7 +233,7 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
         //获取输入的密码然后判断是否一致
         string strpassword;
         strpassword = mLoginPassword.text.ToString();
-        if (strpassword!= mSurePassword.text)
+        if (strpassword != mSurePassword.text)
         {
             Debug.Log("游戏确认密码" + mSurePassword.text.ToString());
             Debug.Log("mmmmmmmmmmmm" + strpassword);
@@ -246,13 +248,13 @@ public class RegisterView_Controller : Windows<RegisterView_Controller>
             CommonMessageUIController.Instance.Open();
             CommonMessageUIController.Getsingle().ShowText("请输入推荐人账号", 1);
             return;
-        }        
+        }
         else
         {
             Tuijianren = mReferrerman.text.ToString();
             //需要在这里把推荐人账号以及注册成功的消息发送至服务器
-           
-            GameManager.Getsingle().RegisterFuc(UserID,UserName,UserPassWord, 2, Tuijianren);
+
+            GameManager.Getsingle().RegisterFuc(UserID, UserName, UserPassWord, 2, Tuijianren);
         }
     }
     public void CheckLanguages()

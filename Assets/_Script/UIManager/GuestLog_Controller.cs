@@ -21,6 +21,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
     private Button mSetting;
     private Button mRank;
     private Button mMail;
+    private Button mCashaprize;
 
     private Transform mTopPanel;
 
@@ -73,6 +74,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
         mSetting = Control("Setting").GetComponent<Button>();
         mRank = Control("Rank").GetComponent<Button>();
         mMail = Control("Mail").GetComponent<Button>();
+        mCashaprize = Control("Cashaprize").GetComponent<Button>();
         AddEventListener();
     }
 
@@ -94,6 +96,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
         mSetting.onClick.AddListener(onSetting);
         mRank.onClick.AddListener(onRank);
         mMail.onClick.AddListener(onMail);
+        mCashaprize.onClick.AddListener(onCashaprize);
     }
 
     private void RemoveEventListener()
@@ -114,6 +117,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
         mSetting.onClick.RemoveListener(onSetting);
         mRank.onClick.RemoveListener(onRank);
         mMail.onClick.RemoveListener(onMail);
+        mCashaprize.onClick.RemoveListener(onCashaprize);
 
 
     }
@@ -281,6 +285,19 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
             Mail_Controller.Instance.Show();
         }
     }
+    private void onCashaprize()
+    {
+        //播放音效
+        SoundManager.GetSingleton().playButtonSound(MusicType.Type_Button);
+        if (!CashaprizeDate_Controller.Exist)
+        {
+            CashaprizeDate_Controller.Instance.Open();
+        }
+        else
+        {
+            CashaprizeDate_Controller.Instance.Show();
+        }
+    }
     public void CheckLanguages()
     {
         if (Globle.LanType == 0)
@@ -297,6 +314,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
             mSetting.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(47).ChineseContent);
             mRank.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(48).ChineseContent);
             mMail.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(49).ChineseContent);
+            mCashaprize.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(108).ChineseContent);
         }
         else if (Globle.LanType == 1)
         {
@@ -312,6 +330,7 @@ public class GuestLog_Controller : Windows<GuestLog_Controller>
             mSetting.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(47).EnglishContent);
             mRank.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(48).EnglishContent);
             mMail.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(49).EnglishContent);
+            mCashaprize.GetComponent<Image>().sprite = loadSprite(Languages_Manager.Instance.GetItem(108).EnglishContent);
         }
     
     }

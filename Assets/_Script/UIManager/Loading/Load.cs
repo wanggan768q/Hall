@@ -15,12 +15,12 @@ public class Load : MonoBehaviour {
     void Update()
     {
         x -= 10;
-        sprotain.transform.Rotate(new Vector3(0, 0, x), 4f);
+        sprotain.transform.Rotate(new Vector3(0, 0, x), 3.5f);
     }
     void Scence2Click()
     {
        
-        if (ConfigGet.ConfigGetFlag=true)
+        if (ConfigGet.ConfigGetFlag)
         { Application.LoadLevel(1); }
        
     }

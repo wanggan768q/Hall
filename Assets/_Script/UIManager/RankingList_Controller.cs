@@ -9,17 +9,20 @@ public class RankingList_Controller : Windows<RankingList_Controller>
 {
     private Button mReturnButton;
     private Image mPaihangbang;
-    private Button mXYLS_Button;
-    private Button mYQS_Button;
-    private Button mDT_Button;
-    private Button mNMW_Button;
-    private Button mQQMRY_Button;
-    private Button mQYM_Button;
-    private Button mSHZ_Button;
+    private Toggle mXYLS_Button;
+    private Toggle mYQS_Button;
+    private Toggle mDT_Button;
+    private Toggle mNMW_Button;
+    private Toggle mQQMRY_Button;
+    private Toggle mQYM_Button;
+    private Toggle mSHZ_Button;
     private Toggle mDayRanking_Button;
     private Toggle mZhouRanking_Button;
     private Toggle mTotalRanking_Button;
-    
+
+   
+
+
 
 
     private static RankingList_Controller R_single = null;
@@ -52,41 +55,37 @@ public class RankingList_Controller : Windows<RankingList_Controller>
     {
         mReturnButton = Control("ReturnButton").GetComponent<Button>();
         mPaihangbang = Control("Paihangbang").GetComponent<Image>();
-        mXYLS_Button = Control("XYLS_Button").GetComponent<Button>();
-        mYQS_Button = Control("YQS_Button").GetComponent<Button>();
-        mDT_Button = Control("DT_Button").GetComponent<Button>();
-        mNMW_Button = Control("NMW_Button").GetComponent<Button>();
-        mQQMRY_Button = Control("QQMRY_Button").GetComponent<Button>();
-        mQYM_Button = Control("QYM_Button").GetComponent<Button>();
-        mSHZ_Button = Control("SHZ_Button").GetComponent<Button>();
+        mXYLS_Button = Control("XYLS_Button").GetComponent<Toggle>();
+        mYQS_Button = Control("YQS_Button").GetComponent<Toggle>();
+        mDT_Button = Control("DT_Button").GetComponent<Toggle>();
+        mNMW_Button = Control("NMW_Button").GetComponent<Toggle>();
+        mQQMRY_Button = Control("QQMRY_Button").GetComponent<Toggle>();
+        mQYM_Button = Control("QYM_Button").GetComponent<Toggle>();
+        mSHZ_Button = Control("SHZ_Button").GetComponent<Toggle>();
         mDayRanking_Button = Control("DayRanking_Button").GetComponent<Toggle>();
         mZhouRanking_Button = Control("ZhouRanking_Button").GetComponent<Toggle>();
         mTotalRanking_Button = Control("TotalRanking_Button").GetComponent<Toggle>();
+
+
 
         AddEventListener();
     }
     private void AddEventListener()
     {
         mReturnButton.onClick.AddListener(onReturnButton);
-        mXYLS_Button.onClick.AddListener(onXYLS_Button);
-        mYQS_Button.onClick.AddListener(onYQS_Button);
-        mDT_Button.onClick.AddListener(onDT_Button);
-        mNMW_Button.onClick.AddListener(onNMW_Button);
-        mQQMRY_Button.onClick.AddListener(onQQMRY_Button);
-        mQYM_Button.onClick.AddListener(onQYM_Button);
-        mSHZ_Button.onClick.AddListener(onSHZ_Button);
+      
+
+
     }
+
+
 
     private void RemoveEventListener()
     {
         mReturnButton.onClick.RemoveListener(onReturnButton);
-        mXYLS_Button.onClick.RemoveListener(onXYLS_Button);
-        mYQS_Button.onClick.RemoveListener(onYQS_Button);
-        mDT_Button.onClick.RemoveListener(onDT_Button);
-        mNMW_Button.onClick.RemoveListener(onNMW_Button);
-        mQQMRY_Button.onClick.RemoveListener(onQQMRY_Button);
-        mQYM_Button.onClick.RemoveListener(onQYM_Button);
-        mSHZ_Button.onClick.RemoveListener(onSHZ_Button);
+
+
+
     }
     private void onReturnButton()
     {
@@ -137,9 +136,6 @@ public class RankingList_Controller : Windows<RankingList_Controller>
    
 
 
-
-
-
     public void CheckLanguages()
     {
         if (Globle.LanType == 0)
@@ -155,6 +151,7 @@ public class RankingList_Controller : Windows<RankingList_Controller>
             mDayRanking_Button.transform.FindChild("RText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(56).ChineseContent;
             mZhouRanking_Button.transform.FindChild("ZText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(57).ChineseContent;
             mTotalRanking_Button.transform.FindChild("ZoText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(58).ChineseContent;
+            //mCoin.GetComponent<Text>().text = Languages_Manager.Instance.GetItem(66).ChineseContent;
         }
         else if (Globle.LanType == 1)
         {
@@ -169,6 +166,7 @@ public class RankingList_Controller : Windows<RankingList_Controller>
             mDayRanking_Button.transform.FindChild("RText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(56).EnglishContent;
             mZhouRanking_Button.transform.FindChild("ZText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(57).EnglishContent;
             mTotalRanking_Button.transform.FindChild("ZoText").GetComponent<Text>().text = Languages_Manager.Instance.GetItem(58).EnglishContent;
+            //mCoin.GetComponent<Text>().text = Languages_Manager.Instance.GetItem(66).ChineseContent;
         }
 
     }

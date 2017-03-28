@@ -12,6 +12,8 @@ public class Loginview_Controller : Windows<Loginview_Controller>
     private Button mButton_zhucezhanghao;
     private Button mButton_wangjimima;
     private Button mButton_English;
+
+
     private Toggle RemaindAccount;
     private Image imgLogin;
     private InputField mUserId;
@@ -162,7 +164,6 @@ public class Loginview_Controller : Windows<Loginview_Controller>
             
             if (RemaindAccount.isOn)
             {
-
                 string  str = Application.persistentDataPath + @"\UserID.txt";
                 if(File.Exists(str))
                 {
@@ -234,11 +235,11 @@ public class Loginview_Controller : Windows<Loginview_Controller>
         CommonMessageUIController.Instance.Open();
         if (Globle.LanType == 0)
         {
-            CommonMessageUIController.Getsingle().ShowText("请直接与前台联系，重置密码并及时修改", 1);
+            CommonMessageUIController.Getsingle().ShowText("请直接与前台联系，重置密码并及时 修改", 1);
         }
         else if (Globle.LanType == 1)
         {
-            CommonMessageUIController.Getsingle().ShowText("Please contact with the receptionist,resetting passwords and modify", 2);
+            CommonMessageUIController.Getsingle().ShowText("Please contact with the receptionist,resetting passwords and modify", 1);
         }
         //else if (Globle.LanType == 2)
         //{
@@ -250,9 +251,10 @@ public class Loginview_Controller : Windows<Loginview_Controller>
         //CommonMessageUIController.Instance.OnClickedOk = OnLickExit;
         //CommonMessageUIController.Instance.OnClickedCancle = OnCLickMain;
     }
+ 
     private string ReadUserid()
     {
-
+        
         FileInfo t = new FileInfo(Application.persistentDataPath + @"\UserID.txt");
         if (!t.Exists)
         {

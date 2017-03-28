@@ -21,7 +21,7 @@ public class Loadingview_Controller : Windows<Loadingview_Controller>
     {
         get
         {
-            return "Prefabs/UIPrefab/LoadingPanel";
+            return "Prefabs/UIPrefab/Panel_Lgoin";
         }
     }
     protected override bool OnOpen()
