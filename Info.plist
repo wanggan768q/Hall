@@ -2,17 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>WaterMargin</string>
-		<string>MoneyFish</string>
-		<string>LuckLion</string>
-		<string>DanTiao</string>
-		<string>WanFish</string>
-		<string>BeautyFish</string>
-		<string>Joy</string>
-		<string>QueYiMen</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -41,6 +30,17 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>0</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>WaterMargin</string>
+		<string>MoneyFish</string>
+		<string>LuckLion</string>
+		<string>DanTiao</string>
+		<string>WanFish</string>
+		<string>BeautyFish</string>
+		<string>Joy</string>
+		<string>QueYiMen</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -65,7 +65,7 @@
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIRequiresPersistentWiFi</key>
-	<false/>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
